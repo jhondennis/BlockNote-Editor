@@ -1,9 +1,17 @@
-import { BlockNote } from "./components/blocknote";
+import { createStore, Provider } from "jotai";
+import { Toaster } from "sonner";
+
+import BlockNotePage from "./pages/BlockNotePage";
+
+const customStore = createStore();
 
 function App() {
   return (
     <>
-      <BlockNote />
+      <Provider store={customStore}>
+        <BlockNotePage />
+        <Toaster position="top-right" />
+      </Provider>
     </>
   );
 }
